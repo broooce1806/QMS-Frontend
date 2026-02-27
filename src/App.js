@@ -4,7 +4,7 @@ import axios from "axios";
 import "./App.css";
 
 // API Base URL
-const API_BASE = "http://127.0.0.1:8001/requirements";
+const API_BASE = process.env.REACT_APP_API_BASE || "http://127.0.0.1:8000/requirements";
 
 function App() {
   const [elements, setElements] = useState([]);
