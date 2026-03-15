@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# QMS-Frontend — SysML Blueprint Designer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A **React** single-page application for managing quality requirements, test cases, test runs, defects, and system architecture blocks — with an interactive **graph visualisation** and a drag-and-drop **SysML Blueprint Designer**.
 
-## Available Scripts
+This is the visual companion to the [QMS-Graph Backend](https://github.com/broooce1806/QMS-Graph).
 
-In the project directory, you can run:
+## Screenshots
 
-### `npm start`
+The app features a dark-themed, professional interface with:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Projects Overview** — Global health dashboard across all subsystems
+- **ALM Dashboard** — Requirement index, test case tracking, and interactive traceability graph (Cytoscape.js)
+- **SysML Blueprint Designer** — Drag-and-drop canvas (React Flow) for creating and linking Requirements, Test Cases, Test Runs, Defects, and Architecture Blocks
+- **Excel Import Wizard** — Column-mapping import for bulk data loading
+- **Project Setup Wizard** — Multi-step configuration for new projects
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- 📊 **Multi-Project Management** — Switch between isolated QMS projects
+- 🕸️ **Interactive Graph Explorer** — Click any entity to explore its full traceability web
+- 📐 **SysML Blueprint Canvas** — Drag nodes, draw connections, auto-detect relationship types
+- 📋 **CRUD for All Entities** — Requirements, Test Cases, Test Runs, Defects, Architecture Blocks
+- 📥 **Excel Import** — Smart column-mapping wizard for bulk data import
+- 🔗 **Smart Linking** — Automatically determines SysML stereotypes based on connected node types
+- ✏️ **Inline Editing** — Click any node on the blueprint to edit all its fields
+- 🔍 **Global Search** — Search across all requirements by ID, title, or project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Prerequisites
 
-### `npm run build`
+| Dependency | Version |
+|------------|---------|
+| Node.js    | 16+     |
+| npm        | 8+      |
+| QMS-Graph Backend | Running on port 8000 |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Clone the repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/broooce1806/QMS-Frontend.git
+cd QMS-Frontend
+```
 
-### `npm run eject`
+### 2. Install dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. Configure environment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Copy the example file:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+cp .env.example .env
+```
 
-## Learn More
+The default points to `http://127.0.0.1:8000/requirements`. Update if your backend runs elsewhere.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4. Start the development server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
 
-### Code Splitting
+The app will open at **http://localhost:3000**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> **Note:** The [QMS-Graph Backend](https://github.com/broooce1806/QMS-Graph) must be running for the app to function. Follow its README for setup instructions.
 
-### Analyzing the Bundle Size
+## Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| Library | Purpose |
+|---------|---------|
+| [React 19](https://react.dev/) | UI framework |
+| [Cytoscape.js](https://js.cytoscape.org/) | Graph visualisation (traceability explorer) |
+| [React Flow](https://reactflow.dev/) | Drag-and-drop blueprint designer |
+| [Axios](https://axios-http.com/) | HTTP client for API calls |
 
-### Making a Progressive Web App
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+src/
+├── App.js          # Main application (all views, forms, graph logic)
+├── App.css         # Component-level styles
+├── index.js        # Entry point
+├── index.css       # Global design system (variables, reset, typography)
+└── App.test.js     # Smoke test
+```
 
-### Advanced Configuration
+## Running Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm test
+```
 
-### Deployment
+## Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The API backend is available at: [QMS-Graph](https://github.com/broooce1806/QMS-Graph)
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is provided as-is for educational and demonstration purposes.

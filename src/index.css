@@ -1,20 +1,141 @@
-/* Dashboard Styles */
+/* ═══════════════════════════════════════════════════
+   QMS Pro — Futuristic Design System
+   Navy Blue · Bluish Black · Orange · Cool Tones
+   ═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* ── Design Tokens ────────────────────────────── */
+:root {
+  /* Core Palette */
+  --navy-900: #0a0e1a;
+  --navy-800: #0d1326;
+  --navy-700: #111a33;
+  --navy-600: #162040;
+  --navy-500: #1b2a52;
+  --navy-400: #243564;
+  --navy-300: #2e4280;
+  --navy-200: #3b5498;
+  --navy-100: #5a7ab5;
+
+  /* Orange Accent */
+  --orange-500: #f97316;
+  --orange-400: #fb923c;
+  --orange-300: #fdba74;
+  --orange-glow: rgba(249, 115, 22, 0.35);
+  --orange-subtle: rgba(249, 115, 22, 0.08);
+
+  /* Cyan / Cool Accent */
+  --cyan-500: #06b6d4;
+  --cyan-400: #22d3ee;
+  --cyan-300: #67e8f9;
+  --cyan-glow: rgba(6, 182, 212, 0.3);
+
+  /* Semantic */
+  --success: #34d399;
+  --success-bg: rgba(52, 211, 153, 0.12);
+  --danger: #f87171;
+  --danger-bg: rgba(248, 113, 113, 0.12);
+  --warning: #fbbf24;
+
+  /* Surfaces */
+  --bg-deep: #060a14;
+  --bg-base: var(--navy-900);
+  --bg-surface: var(--navy-800);
+  --bg-elevated: var(--navy-700);
+  --bg-card: rgba(13, 19, 38, 0.7);
+  --bg-glass: rgba(17, 26, 51, 0.55);
+
+  /* Text */
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-bright: #f8fafc;
+
+  /* Borders & Effects */
+  --border-color: rgba(59, 84, 152, 0.3);
+  --border-subtle: rgba(59, 84, 152, 0.15);
+  --glass-border: rgba(91, 122, 181, 0.2);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow-orange: 0 0 20px rgba(249, 115, 22, 0.15);
+  --shadow-glow-cyan: 0 0 20px rgba(6, 182, 212, 0.15);
+  --radius: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, var(--navy-600) 0%, var(--navy-800) 50%, #0c1020 100%);
+  --gradient-accent: linear-gradient(135deg, var(--orange-500) 0%, #e05e00 100%);
+  --gradient-cool: linear-gradient(135deg, var(--cyan-500) 0%, #0284c7 100%);
+  --gradient-sidebar: linear-gradient(180deg, var(--navy-800) 0%, var(--navy-900) 100%);
+  --gradient-card-border: linear-gradient(135deg, rgba(249,115,22,0.2), rgba(6,182,212,0.2));
+}
+
+/* ── Global Reset ─────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+code {
+  font-family: 'JetBrains Mono', source-code-pro, Menlo, monospace;
+}
+
+/* ── Glass Card Utility ───────────────────────── */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Status Badges ────────────────────────────── */
 .status-badge {
-  padding: 0.25rem 0.75rem;
+  padding: 0.2rem 0.65rem;
   border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.7rem;
+  font-weight: 700;
   display: inline-block;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .status-pass {
-  background: #dcfce7;
-  color: #166534;
+  background: var(--success-bg);
+  color: var(--success);
+  border: 1px solid rgba(52, 211, 153, 0.25);
 }
 
 .status-fail {
-  background: #fee2e2;
-  color: #991b1b;
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+}
+
+.status-other {
+  background: var(--orange-subtle);
+  color: var(--orange-400);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+/* ── Mini Buttons & Inputs ────────────────────── */
+.mini-btn {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  min-height: auto;
 }
 
 .form-input.mini-input,
@@ -25,59 +146,42 @@
   width: 100%;
 }
 
-.mini-btn {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
-  min-height: auto;
+.modern-input {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.modern-input:focus {
+  border-color: var(--orange-500);
+  box-shadow: 0 0 0 3px var(--orange-glow);
+}
+
+.modern-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ── Table Rows ───────────────────────────────── */
+tr {
+  transition: background 0.15s ease;
 }
 
 tr:hover {
-  background-color: #f1f5f9;
+  background-color: rgba(36, 53, 100, 0.3) !important;
   cursor: pointer;
 }
 
-tr:focus-within {
-  background-color: #f1f5f9;
-}
-
-/* Existing globals */
-:root {
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
-  --bg-color: #f8fafc;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --card-bg: #ffffff;
-  --border-color: #e2e8f0;
-  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --radius: 0.75rem;
-}
-
-body {
-  margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--bg-color);
-  color: var(--text-primary);
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
+/* ── Cursor Utility ───────────────────────────── */
 .cursor-pointer {
   cursor: pointer;
 }
 
-.hoverable-row:hover {
-  background: #f8fafc;
-}
-
-/* Split Layout */
+/* ── Dashboard Split Layout ───────────────────── */
 .dashboard-split {
   display: flex;
   gap: 1.5rem;
@@ -87,9 +191,9 @@ code {
 
 .list-pane {
   width: 420px;
-  background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
@@ -98,9 +202,9 @@ code {
 
 .graph-pane {
   flex: 1;
-  background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
   position: relative;
   overflow: hidden;
@@ -110,7 +214,7 @@ code {
 .pane-header {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--border-color);
-  background: #f8fafc;
+  background: var(--bg-elevated);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -122,6 +226,21 @@ code {
   padding: 1rem;
 }
 
+/* Custom Scrollbar */
+.pane-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.pane-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pane-content::-webkit-scrollbar-thumb {
+  background: var(--navy-400);
+  border-radius: 3px;
+}
+
+/* ── Compact Table ────────────────────────────── */
 .compact-table {
   width: 100%;
   border-collapse: collapse;
@@ -130,15 +249,43 @@ code {
 
 .compact-table th {
   text-align: left;
-  padding: 0.5rem;
-  background: #f8fafc;
+  padding: 0.6rem 0.5rem;
+  background: var(--bg-elevated);
   position: sticky;
   top: 0;
   z-index: 2;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid var(--border-color);
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .compact-table td {
   padding: 0.5rem;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+
+/* ── Fade In Animation ────────────────────────── */
+.fade-in {
+  animation: fadeIn 0.35s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Pulse Glow Animation ─────────────────────── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 8px var(--orange-glow); }
+  50%      { box-shadow: 0 0 20px var(--orange-glow), 0 0 40px rgba(249,115,22,0.1); }
+}
+
+/* ── Scanline Overlay (Subtle) ────────────────── */
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
 }
